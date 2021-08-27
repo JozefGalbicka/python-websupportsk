@@ -1,0 +1,7 @@
+{
+  "authentication": {
+    "identifier": "your_identifier",
+    "secret_key": "your_secret_key"
+  },
+  "registered_domain": "example.com"
+}

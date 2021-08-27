@@ -1,0 +1,7 @@
+dist/
+build/
+websupportsk.egg-info/
+websupportsk/testing.py
+.idea/
+venv/
+websupportsk/__pycache__
