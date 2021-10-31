@@ -2,6 +2,11 @@
 Python wrapper for the [Websupport.sk](https://www.websupport.sk/) REST API.  
 The Websupportsk REST API can be found [here](https://rest.websupport.sk).
 
+## Current API support
+✅ DNS management (v0.1.0+)  
+❌ Hosting management  
+❌ VPS management
+
 ## Python 2.x vs 3.x support
 
 Code is Python3 clean, developed under version 3.9. Python2 is not supported.

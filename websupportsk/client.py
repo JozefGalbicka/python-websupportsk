@@ -57,7 +57,7 @@ class Client:
         self.test_connection()
 
     def test_connection(self):
-        """Test if connection is established and no errors occured.
+        """Test if connection is established and no errors occurred.
 
         Raises:
             websupportsk.exceptions.WebsupportAuthenticationError: If authentication failed.
