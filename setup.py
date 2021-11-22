@@ -2,14 +2,14 @@ from setuptools import setup
 from setuptools import find_packages
 from os import path
 
-version = "0.1.1"
+version = "0.1.2"
 
 install_requires = [
     "requests"
 ]
 
 this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, "README.md")) as f:
+with open(path.join(this_directory, "README.md"), encoding="utf") as f:
     long_description = f.read()
 
 setup(

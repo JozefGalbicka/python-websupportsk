@@ -56,6 +56,19 @@ class Client:
 
         self.test_connection()
 
+    def send_login(self):
+        """Wrapper that send HTTP login request to REST API.
+
+        Since Nov 2021 websupport servers returns "401: Incorrect api key or signature" messages on all your
+        query requests if you don't send this default login request before your API request/update. After this
+        request, you are "logged in" for next 59 seconds. If you make any API request/update in this time,
+        it will be processed correctly, however it won't reset this timer back to 59 seconds. For this same reason, this
+        login request is sent before any API request/update.
+        (Notice: This behaviour was not confirmed from official developers of Websupport REST API and may be only
+        limited to my personal account, what is however unlikely)"""
+
+        self.session.get(f"{self.api}{self.default_path}")
+
     def test_connection(self):
         """Test if connection is established and no errors occurred.
 
@@ -93,6 +106,7 @@ class Client:
             List of records that match arguments specified above.
         """
 
+        self.send_login()
         # create dict of arguments passed to method, filter out 'None' values
         # and 'self' argument, rename keys(remove "_" trailing)
         args = {k.replace("_", ""): v for k, v in locals().items() if v is not None and k != 'self'}
@@ -126,6 +140,7 @@ class Client:
             Response from API call. Response contain if request succeeded or failed with errors listed.
         """
 
+        self.send_login()
         args = {k.replace("_", ""): v for k, v in locals().items()}
         args.pop('self')
         args.pop('kwargs')
